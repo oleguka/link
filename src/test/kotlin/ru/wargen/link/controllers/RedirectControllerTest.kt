@@ -9,6 +9,7 @@ import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.TestPropertySource
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
@@ -18,6 +19,7 @@ import org.springframework.web.context.WebApplicationContext
 import ru.wargen.link.LinkApplication
 import ru.wargen.link.service.KeyMapperService
 
+@TestPropertySource(locations = ["classpath:repositories-test.properties"])
 @RunWith(SpringJUnit4ClassRunner::class)
 @SpringBootTest(classes = [LinkApplication::class])
 class RedirectControllerTest {
