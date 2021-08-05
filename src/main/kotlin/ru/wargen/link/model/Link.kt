@@ -4,8 +4,10 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "links")
-
 data class Link(
-    var text: String = "",
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) var id: Long = 0
+        var text: String = "",
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "links_sequence")
+        @SequenceGenerator(name = "links_sequence", sequenceName = "links_seq", allocationSize=1)
+        var id: Long = 0
 )
